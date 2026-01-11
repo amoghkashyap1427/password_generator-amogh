@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passsword Generator</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/25d45303f4.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -15,33 +17,33 @@
                 <h2>Password Generator</h2>
             </div>
             <div class="outputContainer">
-                <p class="finalPassword">hen9r298ry293</p>
-                <button class="copyBtn">C</button>
+                <p class="finalPassword"></p>
+                <button class="copyBtn"><i class="fa-duotone fa-solid fa-copy"></i></button>
             </div>
             <div class="suggestionConatiner">
                 <div class="align length">
                     <p class="size">Password Length</p>
-                    <input type="number" min="1" max="100" value="8" />
+                    <input id="passLen" type="number" min="1" max="20" value="6" />
                 </div>
                 <div class="align upper">
                     <p class="size">Include Uppercase Letters</p>
-                    <input type="checkbox" />
+                    <input id="upperCheck" type="checkbox" checked />
                 </div>
                 <div class="align lower">
                     <p class="size">Include Lowercase Letters</p>
-                    <input type="checkbox" />
+                    <input id="lowerCheck" type="checkbox" checked />
                 </div>
                 <div class="align number">
                     <p class="size">Include Numbers</p>
-                    <input type="checkbox" />
+                    <input id="numberCheck" type="checkbox" checked />
                 </div>
                 <div class="align symbol">
                     <p class="size">Include Symbols</p>
-                    <input type="checkbox" />
+                    <input id="symbolCheck" type="checkbox" checked />
                 </div>
             </div>
             <div class="buttonContainer">
-                <button class="generateBtn">Generate Password</button>
+                <button id="genPass" class="generateBtn" onclick="genPassClick()">Generate Password</button>
             </div>
         </div>
     </div>
