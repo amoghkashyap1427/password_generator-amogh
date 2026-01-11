@@ -1,5 +1,6 @@
 const finalPassword = document.querySelector(".finalPassword");
 // const genPass = document.getElementById("genPass");
+const copyBtn = document.querySelector(".copyBtn");
 const upperCheck = document.getElementById("upperCheck");
 const lowerCheck = document.getElementById("lowerCheck");
 const numberCheck = document.getElementById("numberCheck");
@@ -84,7 +85,26 @@ function genPassClick() {
     }
 
     const name = listFinalPass;
-    const charsArray = name.split("");
+    let charsArray = name.split("");
     charsArray.sort(() => Math.random() - 0.5);
-    finalPassword.innerText = charsArray.join("");
+    charsArray = charsArray.join("");
+    finalPassword.innerText = charsArray;
+    return charsArray;
+}
+
+function copyClick() {
+    const password = finalPassword.innerText;
+
+    if (password === "") {
+        alert("No password to copy!");
+        return;
+    }
+
+    navigator.clipboard.writeText(password)
+        .then(() => {
+            alert("Password copied to clipboard!");
+        })
+        .catch(() => {
+            alert("Failed to copy password");
+        });
 }
