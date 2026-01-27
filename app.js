@@ -23,7 +23,7 @@ for (let i = 97; i <= 122; i++) {
 for (let i = 48; i <= 57; i++) {
     listNumber += String.fromCharCode(i);
 }
-for (let i = 32; i <= 47; i++) {
+for (let i = 33; i <= 47; i++) {
     listSymbols += String.fromCharCode(i);
 }
 for (let i = 58; i <= 64; i++) {
@@ -39,6 +39,7 @@ console.log(listUpper.length);
 console.log(listLower.length);
 console.log(listNumber.length);
 console.log(listSymbols.length);
+console.log(listSymbols);
 
 
 function genPassClick() {
@@ -74,10 +75,15 @@ function genPassClick() {
             break;
         }
         while (true && symbolCheck.checked) {
-            let randomS = Math.floor(Math.random() * 33);
-            listFinalPass += [listSymbols[randomS]];
-            c++;
-            break;
+            let randomS = Math.floor(Math.random() * 32);
+            if (listSymbols[randomS] !== " ") {
+                listFinalPass += [listSymbols[randomS]];
+                c++;
+                break;
+            } else {
+                continue;
+            }
+            // listFinalPass += [listSymbols[randomS]!==" "?listSymbols[randomS]:continue];
         }
         if (c === passLen) {
             break;
